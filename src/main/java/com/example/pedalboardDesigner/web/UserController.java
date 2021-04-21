@@ -38,11 +38,11 @@ public class UserController {
 				newUser.setPasswordHash(hashPassword);
 				newUser.setUsername(signupForm.getUsername());
 				// Define ONE user profile with admin credentials
-//				if(signupForm.getUsername().equals("AaroAdmin")) {
-//					newUser.setRole("ADMIN");
-//				} else {
-//					newUser.setRole("USER");
-//				}
+				if(signupForm.getUsername().equals("AaroAdmin")) {
+					newUser.setRole("ADMIN");
+				} else {
+					newUser.setRole("USER");
+				}
 				newUser.setEmail(signupForm.getEmail());
 //				newUser.setRole("USER");
 				if(urepo.findByUsername(signupForm.getUsername()) == null) {

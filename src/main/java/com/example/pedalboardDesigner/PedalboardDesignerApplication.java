@@ -37,26 +37,26 @@ public class PedalboardDesignerApplication {
 			
 			// Save types
 			
-//			trepo.save(new Type("Chorus"));
-//			trepo.save(new Type("Compressor"));
-//			trepo.save(new Type("Delay"));
-//			trepo.save(new Type("Distortion"));
-//			trepo.save(new Type("Equalizer"));
-//			trepo.save(new Type("Flanger"));
-//			trepo.save(new Type("Fuzz"));
-//			trepo.save(new Type("Looper"));
-//			trepo.save(new Type("Overdrive"));
-//			trepo.save(new Type("Phaser"));
-//			trepo.save(new Type("MultiFX"));
-//			trepo.save(new Type("Tuner"));		
-//			trepo.save(new Type("Reverb"));
-//			trepo.save(new Type("Tremolo"));		
-//			trepo.save(new Type("Other"));
+			trepo.save(new Type("Chorus"));
+			trepo.save(new Type("Compressor"));
+			trepo.save(new Type("Delay"));
+			trepo.save(new Type("Distortion"));
+			trepo.save(new Type("Equalizer"));
+			trepo.save(new Type("Flanger"));
+			trepo.save(new Type("Fuzz"));
+			trepo.save(new Type("Looper"));
+			trepo.save(new Type("Overdrive"));
+			trepo.save(new Type("Phaser"));
+			trepo.save(new Type("MultiFX"));
+			trepo.save(new Type("Tuner"));		
+			trepo.save(new Type("Reverb"));
+			trepo.save(new Type("Tremolo"));		
+			trepo.save(new Type("Other"));
 					
 			// Save some pedals
 			
-//			prepo.save(new Pedal("Big Muff", "Electro Harmonix", 50, trepo.findByName("Fuzz").get(0)));
-//			prepo.save(new Pedal("DD-2", "BOSS", 150, trepo.findByName("Delay").get(0)));
+			prepo.save(new Pedal("Big Muff", "Electro Harmonix", 50, trepo.findByName("Fuzz").get(0)));
+			prepo.save(new Pedal("DD-2", "BOSS", 150, trepo.findByName("Delay").get(0)));
 			
 			for(Pedal pedal : prepo.findAll()) {
 				log.info(pedal.toString());
