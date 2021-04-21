@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<title>Login</title>
+</head>
+<body>
+<div class="container">
+	<div th:if="${param.error}">
+		<h3 style="color: rgb(220, 20, 60)">Invalid username or password</h3>
+	</div> 
+	<form th:action="@{/login}" method="post">
+		<div class="col-md-4">
+			<label> User Name : <input class="form-control form-control-sm" type="text" name="username"/></label>
+		</div>
+		<div>
+			<label> Password: <input class="form-control form-control-sm" type="password" name="password"/> </label>
+		</div>
+		<br>
+		<div>
+			<input class="btn btn-primary" type="submit" value="Sign In"/>
+		</div>
+	</form>
+	<br>
+	<h4>New user?</h4>
+	<a class="btn btn-info" th:href=@{/signup}> Create account </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<title>Pedals: We got'em</title>
+</head>
+<body>
+	<div>
+		<h1>Pedal Peddler's International HQ </h1>
+		<h3>Add a new pedal</h3>
+		<form th:object="${pedal}" th:action="@{save}" action="#" method="post">
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="title">Name</label>
+					<input class="form-control form-control-sm" placeholder="Name" type="text" id="name" th:field="*{name}"/>
+					<label for="author">Brand</label>
+					<input class="form-control form-control-sm" placeholder="Brand name" type="text" id="brand" th:field="*{brand}"/>
+					<label for="author">Voltage (mV)</label>
+					<input class="form-control form-control-sm" placeholder="Power consumption" type="text" id="voltage" th:field="*{voltage}"/>
+					<label for="type">Type</label>
+					<select id="type" th:field="*{type}" class="form-control">
+						<option th:each="type: ${types}"
+								th:value="${type.id}"
+								th:text="${type.name}"></option>
+					</select>
+				</div>
+			</div>
+			<br />
+			<input class="btn btn-success" type="submit" value="Save"></input>
+			<a class="btn btn-primary" th:href="@{/pedallist}">Back</a>
+		</form>
+	</div>
+</body>
+</html>

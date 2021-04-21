@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+<title>Pedals to the meddle!</title>
+</head>
+<body>
+	<h1>Bernard's Books</h1>
+	<h3>Edit pedal info:</h3>
+	<div>
+	<form th:object="${pedal}" th:action="@{../save}" action="#" method="post">
+		<div class="form-row">
+			<div class="form-group col-md-2">
+				<input class="form-control form-control-sm" type="hidden" th:field="*{id}"/>
+				<label for="name">Name</label>
+					<input class="form-control form-control-sm" placeholder="Name" type="text" th:field="*{name}"/>
+				<label for="brand">Brand</label>
+					<input class="form-control form-control-sm" placeholder="Brand" type="text" th:field="*{brand}"/>
+				<label for="year">Voltage (mV)</label>
+					<input class="form-control form-control-sm" placeholder="Power consumption" type="text" th:field="*{voltage}"/>
+					<label for="type">Type</label>
+					<select class="form-control" id="type" th:field="*{type}">
+						<option th:each="type: ${types}"
+								th:value="${{type.id}}"
+								th:text="${type.name}"
+								></option>
+					</select>
+			</div>
+		</div>
+		<br/>
+		<input class="btn btn-success" type="submit" value="Save"></input>
+		<a class="btn btn-primary" th:href="@{/pedallist}">Back</a>
+	</form>
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+<title>Pedals!</title>
+</head>
+<body>
+<div class="container">
+<h1>Let's peddle some pedals</h1>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+	</form>
+	<br/>
+	<table class="table table-striped">
+		<tr>
+			<th>Brand</th>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Voltage (mV)</th>
+			<th>Edit</th>
+			<th sec:authorize="hasAuthority('ADMIN')">Delete</th>
+		</tr>
+		<tr th:each="pedal : ${pedals}">
+			<td th:text="${pedal.brand}"></td>
+			<td th:text="${pedal.name}"></td>
+			<td th:text="${pedal.type.name}"></td>
+			<td th:text="${pedal.voltage}"></td>
+			<td><a class="btn btn-warning" th:href="@{/edit/{id}(id=${pedal.id})}"><i class="fa fa-gavel" aria-hidden="true"></i></a></td>
+			<td sec:authorize="hasAuthority('ADMIN')"><a class="btn btn-danger" th:href="@{/delete/{id}(id=${pedal.id})}"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+		</tr>
+	</table>
+
+	<a href="/add" class="btn btn-success">Add new pedal</a>
+</div>
+</body>
+</html>
