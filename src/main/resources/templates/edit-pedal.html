@@ -6,7 +6,7 @@
 <title>Pedals to the meddle!</title>
 </head>
 <body>
-	<h1>Bernard's Books</h1>
+<div class="container">
 	<h3>Edit pedal info:</h3>
 	<div>
 	<form th:object="${pedal}" th:action="@{../save}" action="#" method="post">
@@ -17,7 +17,7 @@
 					<input class="form-control form-control-sm" placeholder="Name" type="text" th:field="*{name}"/>
 				<label for="brand">Brand</label>
 					<input class="form-control form-control-sm" placeholder="Brand" type="text" th:field="*{brand}"/>
-				<label for="year">Voltage (mV)</label>
+				<label for="year">Voltage (mA)</label>
 					<input class="form-control form-control-sm" placeholder="Power consumption" type="text" th:field="*{voltage}"/>
 					<label for="type">Type</label>
 					<select class="form-control" id="type" th:field="*{type}">
@@ -34,5 +34,6 @@
 	</form>
 
 	</div>
+</div>
 </body>
 </html>
